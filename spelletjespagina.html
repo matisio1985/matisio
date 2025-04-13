@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spelletjes | MathijssenFit</title>
+  <meta name="description" content="Leuke mini-games zoals Raad het Getal, Lingo, Dobbelsteenworp en meer.">
+  <style>
+    :root {
+      --primary: #00897b;
+      --secondary: #ffb74d;
+      --bg-light: #fdfdfd;
+      --bg-dark: #1e1e1e;
+      --text-light: #222;
+      --text-dark: #f5f5f5;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      display: flex;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    aside {
+      width: 250px;
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 2rem 1rem;
+    }
+    aside h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside li {
+      margin: 1rem 0;
+    }
+    aside a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    aside a:hover {
+      text-decoration: underline;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .dark-mode section {
+      background: #2a2a2a;
+    }
+    h2 {
+      color: var(--primary);
+    }
+    input, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .result {
+      margin-top: 1rem;
+      background: #e0f2f1;
+      padding: 1rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+    }
+    .btn-toggle {
+      background: var(--secondary);
+      color: black;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>🎮 Spelletjes</h2>
+    <ul>
+      <li><a href="#raad">Raad het Getal</a></li>
+      <li><a href="#dobbel">Dobbelsteen</a></li>
+      <li><a href="#lingo">Mini Lingo</a></li>
+    </ul>
+    <button class="btn-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙 Dark Mode</button>
+  </aside>
+
+  <main>
+    <section id="raad">
+      <h2>🎯 Raad het Getal</h2>
+      <p>Raad een getal tussen 1 en 100</p>
+      <input type="number" id="raadInput" min="1" max="100">
+      <button onclick="checkRaadGetal()">Raad</button>
+      <div class="result" id="raadResult"></div>
+    </section>
+
+    <section id="dobbel">
+      <h2>🎲 Dobbelsteen Worp</h2>
+      <button onclick="gooiDobbelsteen()">Gooi</button>
+      <div class="result" id="dobbelResult"></div>
+    </section>
+
+    <section id="lingo">
+      <h2>🟩 Mini Lingo</h2>
+      <input type="text" id="lingoInput" maxlength="5" placeholder="5-letter woord">
+      <button onclick="speelLingo()">Controleer</button>
+      <button onclick="nieuwLingoWoord()">Nieuw woord</button>
+      <div class="result" id="lingoResult"></div>
+    </section>
+  </main>
+
+  <script>
+    let geheimGetal = Math.floor(Math.random() * 100) + 1;
+    function checkRaadGetal() {
+      const gok = +document.getElementById('raadInput').value;
+      const uitkomst = gok === geheimGetal ? '✅ Goed geraden!' : (gok > geheimGetal ? '📉 Lager' : '📈 Hoger');
+      document.getElementById('raadResult').textContent = uitkomst;
+    }
+
+    function gooiDobbelsteen() {
+      const worp = Math.floor(Math.random() * 6) + 1;
+      document.getElementById('dobbelResult').textContent = `Je gooide: ${worp}`;
+    }
+
+    const lingoWoorden = ["appel","molen","plank","kleur","stoel","poort","kaart","snoep","vogel","piano","plant","vloer","knoop","kruid","tulip","licht","klok","groot","jacht","zomer","rozen","slang","onder","noord","hondt","geest","jasje","fiets","vrede","tover","lemur","smaak","media","tempo","robot","kader","rijst","mapje","koers","proef","vlees","krant","lente","kassa","speel","water","zacht","pluis","slank","wolke","noten","genot","hoofd","nacht","kabel","leger","ademt","samen","snoer","pasta","recht","komen","ramen","duwen","haren","broek","gaven","klimt","sloop","vloer","dorst","kookt","ruzie","deken","flink","curry","steel","turbo","jasje","fluit","hekel","stuur","chips","boter","pizza","draad","tosti","ijsje","haard","radio","penen","paars","ruit","engel","piano","kamer","vaten","koken","kaars","tulip","sloep"];
+
+    let lingoWoord = kiesNieuwWoord();
+
+    function kiesNieuwWoord() {
+      return lingoWoorden[Math.floor(Math.random() * lingoWoorden.length)].toLowerCase();
+    }
+
+    function nieuwLingoWoord() {
+      lingoWoord = kiesNieuwWoord();
+      document.getElementById('lingoResult').textContent = 'Nieuw woord gekozen!';
+    }
+
+    function speelLingo() {
+      const invoer = document.getElementById('lingoInput').value.toLowerCase();
+      if (invoer.length !== 5) {
+        document.getElementById('lingoResult').textContent = 'Geef een 5-letterwoord op.';
+        return;
+      }
+      if (!lingoWoorden.includes(invoer)) {
+        document.getElementById('lingoResult').textContent = 'Ongeldig woord (geen deel van de lijst).';
+        return;
+      }
+      let feedback = '';
+      for (let i = 0; i < 5; i++) {
+        if (invoer[i] === lingoWoord[i]) feedback += '🟩';
+        else if (lingoWoord.includes(invoer[i])) feedback += '🟨';
+        else feedback += '⬜';
+      }
+      document.getElementById('lingoResult').textContent = feedback;
+    }
+  </script>
+</body>
+</html>

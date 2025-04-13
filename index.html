@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-3167065596755326">
+  <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142065" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gratis tools om je gezondheid, productiviteit en focus te verbeteren. Van calorie calculators tot spelletjes.">
+  <title>MathijssenFit – Alles-in-één Toolplatform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #007acc;
+      --secondary: #34c759;
+      --dark: #222;
+      --light: #f9f9f9;
+      --gray: #eaeaea;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .lang-switch button {
+      background: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .tool-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+    .tool-card i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .tool-card h3 {
+      margin: 0.5rem 0;
+    }
+    .tool-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--gray);
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="lang-switch">
+      <button onclick="setLanguage('nl')">🇳🇱</button>
+      <button onclick="setLanguage('en')">🇬🇧</button>
+    </div>
+    <h1 id="main-title">Welkom bij MathijssenFit</h1>
+    <p id="main-subtitle">Gratis tools die jou helpen gezonder te leven, slimmer te werken en plezier te maken.</p>
+  </header>
+
+  <section class="tools-grid">
+    <div class="tool-card">
+      <i class="fas fa-heartbeat"></i>
+      <h3 id="gezondheid-title">Gezondheid</h3>
+      <p id="gezondheid-desc">Bereken je calorieën, waterinname, hartslagzones en meer</p>
+      <a href="gezondheidtools.html" id="gezondheid-link">Open tools</a>
+    </div>
+    <div class="tool-card">
+      <i class="fas fa-clock"></i>
+      <h3 id="tijd-title">Tijd & Planning</h3>
+      <p id="tijd-desc">Gebruik tools zoals klok, stopwatch, slaaptimer en countdown</p>
+      <a href="tijdtools.html" id="tijd-link">Bekijk tools</a>
+    </div>
+    
+    <div class="tool-card">
+      <i class="fas fa-wrench"></i>
+      <h3 id="extra-title">Extra Tools</h3>
+      <p id="extra-desc">Percentage, btw, datumverschil, IQ-test, PDF naar tekst en meer</p>
+      <a href="extratools.html" id="extra-link">Bekijk extra's</a>
+    </div>
+    <div class="tool-card">
+      <i class="fas fa-book"></i>
+      <h3 id="educatie-title">Educatie & School</h3>
+      <p id="educatie-desc">Tafels, eenheden, gemiddelde cijfers, spelling en formules</p>
+      <a href="educatieschooltools.html" id="educatie-link">Oefen nu</a>
+    </div>
+    <div class="tool-card">
+      <i class="fas fa-font"></i>
+      <h3 id="taal-title">Taal & Tekst</h3>
+      <p id="taal-desc">Tekst spiegelen, hoofdletters, zoek & vervang, synoniemen</p>
+      <a href="taalteksttools.html" id="taal-link">Start</a>
+    </div>
+    <div class="tool-card">
+      <i class="fas fa-gamepad"></i>
+      <h3 id="spelletjes-title">Spelletjes</h3>
+      <p id="spelletjes-desc">Raad het getal, lingo, dobbelsteen en meer plezier!</p>
+      <a href="spelletjespagina.html" id="spelletjes-link">Speel nu</a>
+    </div>
+    <div class="tool-card">
+      <i class="fas fa-newspaper"></i>
+      <h3 id="blog-title">Blog</h3>
+      <p id="blog-desc">Lees handige tips over gezondheid, focus en productiviteit</p>
+      <a href="https://blog.matisio.nl" target="_blank" id="blog-link">Lees blog</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MathijssenFit | Alles voor gezondheid, productiviteit & plezier
+  </footer>
+
+  <script>
+    const translations = {
+      nl: {
+        "main-title": "Welkom bij MathijssenFit",
+        "main-subtitle": "Gratis tools die jou helpen gezonder te leven, slimmer te werken en plezier te maken.",
+        "gezondheid-title": "Gezondheid",
+        "gezondheid-desc": "Bereken je calorieën, waterinname, hartslagzones en meer",
+        "gezondheid-link": "Open tools",
+        "tijd-title": "Tijd & Planning",
+        "tijd-desc": "Gebruik tools zoals klok, stopwatch, slaaptimer en countdown",
+        "tijd-link": "Bekijk tools",
+        "extra-title": "Extra Tools",
+        "extra-desc": "Percentage, btw, datumverschil, IQ-test, PDF naar tekst en meer",
+        "extra-link": "Bekijk extra's",
+        "educatie-title": "Educatie & School",
+        "educatie-desc": "Tafels, eenheden, gemiddelde cijfers, spelling en formules",
+        "educatie-link": "Oefen nu",
+        "taal-title": "Taal & Tekst",
+        "taal-desc": "Tekst spiegelen, hoofdletters, zoek & vervang, synoniemen",
+        "taal-link": "Start",
+        "spelletjes-title": "Spelletjes",
+        "spelletjes-desc": "Raad het getal, lingo, dobbelsteen en meer plezier!",
+        "spelletjes-link": "Speel nu",
+        "blog-title": "Blog",
+        "blog-desc": "Lees handige tips over gezondheid, focus en productiviteit",
+        "blog-link": "Lees blog"
+      },
+      en: {
+        "main-title": "Welcome to MathijssenFit",
+        "main-subtitle": "Free tools to help you live healthy, work smarter and have fun.",
+        "gezondheid-title": "Health",
+        "gezondheid-desc": "Calculate calories, hydration, heart zones and more",
+        "gezondheid-link": "Open tools",
+        "tijd-title": "Time & Planning",
+        "tijd-desc": "Clock, stopwatch, sleep timer, countdown and more",
+        "tijd-link": "View tools",
+        "productiviteit-title": "Productivity",
+        "productiviteit-desc": "Focus with pomodoro timer, notepad and more",
+        "productiviteit-link": "Use tools",
+        "extra-title": "Extra Tools",
+        "extra-desc": "Percentages, VAT, dates, IQ, PDF to text and more",
+        "extra-link": "Explore",
+        "educatie-title": "Education & School",
+        "educatie-desc": "Tables, unit conversions, grade averages and more",
+        "educatie-link": "Start now",
+        "taal-title": "Language & Text",
+        "taal-desc": "Mirror text, case convert, find & replace, synonyms",
+        "taal-link": "Start",
+        "spelletjes-title": "Games",
+        "spelletjes-desc": "Guess the number, lingo, dice and more!",
+        "spelletjes-link": "Play now",
+        "blog-title": "Blog",
+        "blog-desc": "Read tips on health, focus and productivity",
+        "blog-link": "Visit blog"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('lang', lang);
+      const dict = translations[lang];
+      if (!dict) return;
+      for (const id in dict) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dict[id];
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      let lang = localStorage.getItem('lang');
+      if (!lang || !['nl', 'en'].includes(lang)) lang = 'nl';
+      setLanguage(lang);
+    });
+  </script>
+</body>
+</html>
