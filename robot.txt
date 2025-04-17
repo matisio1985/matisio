@@ -1,3 +1,5 @@
 User-agent: *
-Allow: /
-Sitemap: https://matisio.nl/sitemap.xml
+Disallow:
+
+Sitemap: https://www.mathijssenfit.com/sitemap.xml
+
